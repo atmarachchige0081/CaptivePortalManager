@@ -1,3 +1,9 @@
+
+[![Check Arduino](https://github.com/atmarachchige0081/CaptivePortalManager/actions/workflows/check-arduino.yml/badge.svg)](https://github.com/atmarachchige0081/CaptivePortalManager/actions/workflows/check-arduino.yml)
+[![Compile Examples](https://github.com/atmarachchige0081/CaptivePortalManager/actions/workflows/compile-examples.yml/badge.svg)](https://github.com/atmarachchige0081/CaptivePortalManager/actions/workflows/compile-examples.yml)
+[![Spell Check](https://github.com/atmarachchige0081/CaptivePortalManager/actions/workflows/spell-check.yml/badge.svg)](https://github.com/atmarachchige0081/CaptivePortalManager/actions/workflows/spell-check.yml)
+
+
 # CaptivePortalManager
 
 CaptivePortalManager is an Arduino/ESP32 library that:
