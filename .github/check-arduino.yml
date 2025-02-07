@@ -1,0 +1,21 @@
+name: Check Arduino
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Arduino Lint
+        run: |
+          mkdir -p ~/bin
+          curl -sSL https://raw.githubusercontent.com/arduino/arduino-lint/main/install.sh | sudo bash
+
+      - name: Run Arduino Lint
+        run: arduino-lint --library-manager --compliance strict

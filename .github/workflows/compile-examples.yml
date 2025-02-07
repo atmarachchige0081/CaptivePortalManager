@@ -1,0 +1,32 @@
+name: Compile Examples
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Arduino CLI
+        uses: arduino/setup-arduino-cli@v1.1.0
+        with:
+          version: 0.31.0  # pick a version, or omit for latest
+
+      - name: Install library dependencies
+        run: |
+          arduino-cli lib install ArduinoJson
+          # Add more libs here if needed by examples
+
+      - name: Compile Example Sketches
+        run: |
+          # Compile each example using a specific board.
+          # For an ESP32 board, e.g. esp32:esp32:esp32
+          arduino-cli compile --fqbn esp32:esp32:esp32 ./examples/BasicPortal
+          arduino-cli compile --fqbn esp32:esp32:esp32 ./examples/CustomAP
+          arduino-cli compile --fqbn esp32:esp32:esp32 ./examples/ExtendedFeatures
+          # Add more examples or more boards if needed.
