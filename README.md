@@ -32,51 +32,10 @@ CaptivePortalManager is an Arduino/ESP32 library that:
    - Ensure the folder name is `CaptivePortalManager`.  
    - Restart the Arduino IDE.
 
-
-
 ## Dependencies
 
 - ArduinoJson for JSON parsing.
 - Preferences (built into ESP32 Arduino Core) if you want NVS storage.
 - WiFiClientSecure (built into ESP32 Arduino Core) for HTTPS connections.
 
-## Usage
-
-1. **Include the Library**
-   ```cpp
-   #include <WiFi.h>                   // Required for ESP32 Wi-Fi
-   #include <CaptivePortalManager.h>   // Your library
-
-### Create and Initialize
-
-CaptivePortalManager portal("MyPortalSSID", "MyPortalPass");
-
-void setup() {
-  Serial.begin(115200);
-  portal.begin();  // Attempt to connect with stored credentials; otherwise, start the captive portal
-}
-
-void loop() {
-  portal.handle(); // Must be called frequently for DNS, web server, and follower checks
-}
-
-### Accessing Follower Count
-
-int currentCount = portal.getFollowerCount();
-Serial.println(currentCount);
-
-### Callbacks
-
-void myFollowerCallback(int newCount) {
-  Serial.printf("New follower count: %d\n", newCount);
-}
-
-// In setup():
-portal.onFollowerCountUpdate(myFollowerCallback);
-
-
-### Error Handling
-if (portal.getLastError() != CaptivePortalManager::ERROR_NONE) {
-  // Handle or log error
-}
 
